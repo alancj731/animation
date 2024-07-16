@@ -1,8 +1,12 @@
 'use client';
-import { use, useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import  React from 'react';
 import './Pacman.css';
-import { clear } from 'console';
 
+
+interface CustomCSSProperties extends React.CSSProperties {
+    [key: string]: any;
+}
 
 export default function Pacman(props: Readonly<{animationTime:string, animationDelay:string}>) {
 
@@ -72,10 +76,15 @@ export default function Pacman(props: Readonly<{animationTime:string, animationD
     );
 
     const extraDelay = parseFloat(props.animationDelay) * 1.2 + 's';
+
+    const styles: CustomCSSProperties = {
+        '--animation-time': props.animationTime,
+        '--animation-delay': extraDelay,
+    };
     
     return (
         <div className="path">
-            <div className="pacman" id="pacman" ref={pacmanRef} style={{'--animation-time': props.animationTime, '--animation-delay': extraDelay}}></div>
+            <div className="pacman" id="pacman" ref={pacmanRef} style={styles}></div>
             {dots}
         </div>
     );
