@@ -4,6 +4,12 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { NextLogoDark } from '@/ui/next-logo';
 
+const links = [
+  { href: '/pacman', label: 'Pacman Progress' },
+  { href: '/starfield', label: 'Star Field' },
+  { href: '/movingpic', label: 'Moving Picture' },
+];
+
 
 export function GlobalNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,30 +33,16 @@ export function GlobalNav() {
         </Link>
       </div>
       <div className="flex flex-col p-4">
-        <Link
-          href="/pacman"
+        {links.map(({ href, label }) => (
+          <Link 
+          key={href}
+          href={href}
           className="mt-2 p-2 text-gray-400 hover:text-gray-50 hover:bg-gray-800 rounded"
           onClick={close}
-        >
-          Pacman Progress
-        </Link>
-        
-        <Link
-          href="/starfield"
-          className="mt-2 p-2 text-gray-400 hover:text-gray-50 hover:bg-gray-800 rounded"
-          onClick={close}
-        >
-          Star Field
-        </Link>
-
-        <Link
-          href="/movingpic"
-          className="mt-2 p-2 text-gray-400 hover:text-gray-50 hover:bg-gray-800 rounded"
-          onClick={close}
-        >
-          Moving Picture
-        </Link>
-
+          >
+            {label}
+          </Link>
+        ))}
       </div>
     </div>
   );
