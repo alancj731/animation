@@ -8,6 +8,8 @@ const links = [
   { href: '/pacman', label: 'Pacman Progress' },
   { href: '/starfield', label: 'Star Field' },
   { href: '/movingpic', label: 'Moving Picture' },
+  { href: '/panelpic', label: 'Panel Picture' },
+  
 ];
 
 

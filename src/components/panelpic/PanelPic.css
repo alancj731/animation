@@ -1,0 +1,39 @@
+.image-container {
+  position: relative;
+  overflow: hidden;
+  perspective: 1000px; /* Add perspective */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: center center; /* Set transform origin to center */
+  transition: transform 1.5s ease-in-out; /* Smoother transition for transform */
+}
+
+.strip-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  height: 85%;
+  transform-origin: center center; /* Set transform origin to center */
+  transition: transform 1.5s ease-in-out; /* Smoother transition for transform */
+}
+
+.strip {
+  width: 20px; /* Width of each strip */
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 1.5s ease;
+}
+
+.image-container:hover .image-container {
+}
+
+.image-container:hover .strip-container {
+  transform: scale(1.15); /* Scale up the strip container */
+}
+
+.image-container:hover .strip {
+  transform: rotateY(45deg) scaleY(0.9);
+}
