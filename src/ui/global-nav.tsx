@@ -34,6 +34,7 @@ export function GlobalNav() {
         >
           Pacman Progress
         </Link>
+        
         <Link
           href="/starfield"
           className="mt-2 p-2 text-gray-400 hover:text-gray-50 hover:bg-gray-800 rounded"
@@ -41,6 +42,15 @@ export function GlobalNav() {
         >
           Star Field
         </Link>
+
+        <Link
+          href="/movingpic"
+          className="mt-2 p-2 text-gray-400 hover:text-gray-50 hover:bg-gray-800 rounded"
+          onClick={close}
+        >
+          Moving Picture
+        </Link>
+
       </div>
     </div>
   );
