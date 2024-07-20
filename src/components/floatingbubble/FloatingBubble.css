@@ -1,0 +1,19 @@
+.container {
+    width: 628px;
+    height: 628px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2b0a2a;
+  }
+  .blob {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+  }
+  
+  .blob:nth-child(2) {
+    filter: blur(80px);
+  }
+  

@@ -9,6 +9,7 @@ const links = [
   { href: '/starfield', label: 'Star Field' },
   { href: '/movingpic', label: 'Moving Picture' },
   { href: '/panelpic', label: 'Panel Picture' },
+  { href: '/floatingbubble', label: 'Floating Bubble' },
   
 ];
 
