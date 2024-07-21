@@ -10,6 +10,8 @@ const links = [
   { href: '/movingpic', label: 'Moving Picture' },
   { href: '/panelpic', label: 'Panel Picture' },
   { href: '/floatingbubble', label: 'Floating Bubble' },
+  { href: '/sphere', label: 'Three Js Sphere' },
+  
   
 ];
 
