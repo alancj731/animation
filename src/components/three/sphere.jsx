@@ -9,7 +9,7 @@ import "./sphere.css";
 export function Sphere(){
 
     const canvasRef = useRef(null);
-    const containerRef = useRef(null);  
+    // const containerRef = useRef(null);  
     
     const scene = new THREE.Scene();
 
@@ -23,8 +23,8 @@ export function Sphere(){
     const mesh = new THREE.Mesh(geometry, material);
 
     const sizes = {
-        width: 1,
-        height: 1,
+        width: 500,
+        height: 500,
     };
 
     scene.add(mesh);
@@ -34,16 +34,14 @@ export function Sphere(){
     light.intensity = 1;
     scene.add(light);
 
-    const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height);
+    const camera = new THREE.PerspectiveCamera(45, 1);
     camera.position.z = 20;
     scene.add(camera);
 
     
 
     useEffect(() => {
-        if (containerRef.current && canvasRef.current) {
-            sizes.width = containerRef.current.clientWidth * 0.75;
-            sizes.height = containerRef.current.clientHeight * 0.75;
+        if (canvasRef.current) {
 
             const renderer = new THREE.WebGLRenderer({
                 canvas: canvasRef.current,
@@ -59,18 +57,6 @@ export function Sphere(){
             controls.autoRotate = true;
             controls.autoRotateSpeed = 1;
 
-            const handleResize = () => {
-                sizes.width = containerRef.current.clientWidth * 0.75;
-                sizes.height = containerRef.current.clientHeight * 0.75;
-              
-                //Update camera
-                camera.aspect = sizes.width / sizes.height;
-                camera.updateProjectionMatrix();
-                renderer.setSize(sizes.width, sizes.height);
-            };
-
-            canvasRef.current.addEventListener("resize", handleResize);
-
             const animate = () => {
                 controls.update();
                 renderer.render(scene, camera);
@@ -78,14 +64,11 @@ export function Sphere(){
             };
             animate();
 
-            return () => {
-                window.removeEventListener('resize', handleResize);
-            }
         }
     }, []);
     
     return (
-        <div className='canvascontainer' ref={containerRef}>
+        <div className='canvascontainer'>
             <canvas id='canvas' className='canvas' ref={canvasRef} > Sphere </canvas>
         </div>
     )
